@@ -1,11 +1,8 @@
-from __future__ import print_function
-import RPi.GPIO as GPIO
-import time
-import sys
+from machine import I2C, Pin
+import usys
+from ds1307 import DS1307
 
-GPIO.setmode(GPIO.BCM)
-#GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(18, GPIO.IN)
+
 sleep_duration = .025
 old = None
 duration = 0
@@ -13,16 +10,6 @@ last_char = None
 new_char = None
 synced = False
 
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
 
 
 class TimeSignal:
