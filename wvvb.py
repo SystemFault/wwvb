@@ -1,6 +1,6 @@
 from machine import I2C, Pin
-import usys
-from ds1307 import DS1307
+import utime
+
 
 
 sleep_duration = .025
